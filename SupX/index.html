@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SupX Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-mark">☀</div>
+          <div class="brand-text">
+            <h1>SupX Weather</h1>
+            <p>Current conditions for your favorite cities</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="refreshAllBtn" class="btn btn-ghost" aria-label="Refresh all cities">
+            ⟳ Refresh all
+          </button>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="controls-card glass-panel">
+          <h2>Choose cities</h2>
+          <p class="subtitle">
+            Select from popular cities or add your own. We’ll show the latest weather for each.
+          </p>
+
+          <div class="controls-grid">
+            <div class="control-group">
+              <label for="citySelect">Quick add</label>
+              <div class="control-row">
+                <select id="citySelect">
+                  <option value="" disabled selected>Select a city</option>
+                  <option value="London">London</option>
+                  <option value="New York">New York</option>
+                  <option value="Tokyo">Tokyo</option>
+                  <option value="Sydney">Sydney</option>
+                  <option value="Paris">Paris</option>
+                  <option value="Berlin">Berlin</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="Dubai">Dubai</option>
+                  <option value="Toronto">Toronto</option>
+                </select>
+                <button id="addPresetBtn" class="btn">Add</button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label for="customCityInput">Custom city</label>
+              <div class="control-row">
+                <input
+                  id="customCityInput"
+                  type="text"
+                  placeholder="e.g. San Francisco"
+                  spellcheck="false"
+                />
+                <button id="addCustomBtn" class="btn btn-outline">Add</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="hint">
+            Tip: You can remove a city card at any time and re-add it later.
+          </div>
+        </section>
+
+        <section class="cards-section" aria-live="polite">
+          <div id="emptyState" class="empty-state glass-panel">
+            <h2>No cities selected yet</h2>
+            <p>Add a few cities above to see the current weather details in real time.</p>
+          </div>
+          <div id="cardsGrid" class="cards-grid"></div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span id="lastUpdated">Last updated: –</span>
+        <span class="separator">•</span>
+        <span>Powered by your weather API</span>
+      </footer>
+    </div>
+
+    <template id="weatherCardTemplate">
+      <article class="weather-card glass-panel">
+        <header class="card-header">
+          <div class="card-title">
+            <h3 class="city-name"></h3>
+            <p class="country-code"></p>
+          </div>
+          <button class="icon-btn remove-btn" aria-label="Remove city">✕</button>
+        </header>
+        <div class="card-main">
+          <div class="temp-block">
+            <span class="temp-value">--</span>
+            <span class="temp-unit">°C</span>
+          </div>
+          <div class="icon-block">
+            <img class="weather-icon" alt="Weather icon" />
+            <p class="weather-description"></p>
+          </div>
+        </div>
+        <dl class="card-meta">
+          <div class="meta-item">
+            <dt>Feels like</dt>
+            <dd class="feels-like">-- °C</dd>
+          </div>
+          <div class="meta-item">
+            <dt>Humidity</dt>
+            <dd class="humidity">-- %</dd>
+          </div>
+          <div class="meta-item">
+            <dt>Wind</dt>
+            <dd class="wind">-- km/h</dd>
+          </div>
+        </dl>
+        <footer class="card-footer">
+          <span class="updated-at">–</span>
+          <button class="icon-btn refresh-btn" aria-label="Refresh city weather">⟳</button>
+        </footer>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+

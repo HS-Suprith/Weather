@@ -1,0 +1,11 @@
+{
+  "name": "supx-weather-dashboard",
+  "version": "1.0.0",
+  "description": "A beautiful multi-city weather dashboard built with vanilla HTML, CSS, and JavaScript.",
+  "private": true,
+  "scripts": {
+    "start": "npx serve .",
+    "preview": "npx serve ."
+  }
+}
+
