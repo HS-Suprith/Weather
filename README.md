@@ -1,5 +1,3 @@
-# Weather
-
 # SupX Weather Dashboard
 
 A sleek, minimal, **multi-city weather dashboard** built with vanilla HTML, CSS, and JavaScript.
